@@ -20,3 +20,4 @@ do
   trap 'echo "I hate the kill command" && terminator' SIGTERM
   trap 'terminator' SIGQUIT
 done
+
