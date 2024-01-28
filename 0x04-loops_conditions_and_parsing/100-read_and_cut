@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Displays `/etc/passwd`username, user id, and user directory.
+
+while read passwd; do
+  echo "$passwd" | cut -d ':' -f1,3,6
+done < "/etc/passwd"
