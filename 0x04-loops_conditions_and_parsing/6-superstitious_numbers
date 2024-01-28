@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#Creating a script that uses case statements after 4,9,17
+
+counter=1
+while [ $counter -le 20 ]
+do
+    echo "$counter"
+    case $counter in
+        4) echo "bad luck from China";;
+        9) echo "bad luck from Japan";;
+        17) echo "bad luck from Italy";;
+    esac
+    ((counter++))
+done
+
