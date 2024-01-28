@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Program prints FizzBuzz sequence if divisible to 5 and 3.
+
+for i in {1..100}
+do
+    if [ $((i % 5)) -eq 0 -a $((i % 3)) -eq 0 ]
+    then
+	    echo "FizzBuzz"
+    elif [ $((i % 3)) -eq 0 ]
+    then
+	    echo "Fizz"
+    elif [ $((i % 5)) -eq 0 ]
+    then
+	    echo "Buzz"
+    else
+	    echo "$i"
+    fi
+done
