@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# display "Best School", print "bad luck" when counter=4 and  "good luck" 0n 8.
+
+counter=1
+while [ $counter -le 10 ]
+do
+	if [ $counter -eq 4 ]
+	then
+	    echo "bad luck"
+	elif [ $counter -eq 8 ]
+	then
+	    echo "good luck"
+       	else
+	    echo "Best School"
+	fi
+	((counter++))
+done
