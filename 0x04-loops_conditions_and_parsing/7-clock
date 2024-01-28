@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# display the time: fist minutes for 59 then houre for 12 times.
+
+hour_count=0
+while [ $hour_count -le 12 ]
+do
+    echo "Hour: $hour_count"
+    minute_count=1
+    while [ $minute_count -lt 60 ]
+    do
+        echo "$minute_count"
+        ((minute_count++))
+    done
+    ((hour_count++))
+done
