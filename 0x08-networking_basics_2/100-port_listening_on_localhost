@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Write a Bash script that listens on port 98 on localhost.
+# Connecting to localhost on port 98 using telnet and typing some text.
+
+nc -l 98
