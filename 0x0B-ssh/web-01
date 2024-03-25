@@ -2,5 +2,7 @@
 # web-01 login
 
 eval $("ssh-agenot")
+
 ssh-add ~/.ssh/school
+
 ssh ubuntu@34.239.248.0
