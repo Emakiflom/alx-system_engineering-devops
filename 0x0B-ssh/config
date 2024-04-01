@@ -1,0 +1,12 @@
+ Host web-01
+        HostName 54.158.180.95
+        User ubuntu
+        IdentityFile ~/.ssh/school
+ Host web-02
+        HostName 100.26.10.90
+        User ubuntu
+        IdentityFile ~/.ssh/school
+ Host lb-1
+        HostName 100.25.16.118
+        User ubuntu
+        IdentityFile ~/.ssh/school
