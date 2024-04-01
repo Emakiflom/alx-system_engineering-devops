@@ -46,3 +46,60 @@ At the end of this project, you should be able to explain the following concepts
 - The first line of all your Bash scripts should be exactly `#!/usr/bin/env bash`
 - The second line of all your Bash scripts should be a comment explaining what the script is doing
 
+# SSH Access Setup Guide
+
+This guide provides step-by-step instructions for setting up SSH access to servers using private keys. Follow these instructions to securely connect to remote servers from your system or PC.
+
+## Prerequisites
+- Git Bash installed on your system.
+- Access to the private key associated with the SSH connection.
+
+## Instructions
+
+1. Open Git Bash.
+2. Create a directory for SSH:
+    ```bash
+    mkdir ~/.ssh
+    ```
+3. Edit SSH configuration:
+    ```bash
+    vi ~/.ssh/config
+    ```
+    Configure it as follows:
+    ```text
+    Host web-01
+        HostName 54.158.180.95
+        User ubuntu
+        IdentityFile ~/.ssh/school
+    Host web-02
+        HostName 100.26.10.90
+        User ubuntu
+        IdentityFile ~/.ssh/school
+    Host lb-1
+        HostName 100.25.16.118
+        User ubuntu
+        IdentityFile ~/.ssh/school
+    ```
+4. Edit private key file:
+    ```bash
+    vi ~/.ssh/school
+    ```
+    Add the private key and save it.
+
+5. Set permissions on SSH directory and files:
+    ```bash
+    chmod 700 ~/.ssh && chmod 600 ~/.ssh/school
+    ```
+
+6. Connect to the server:
+    - To connect to `web-01`:
+        ```bash
+        ssh web-01
+        ```
+    - Or using the IP address directly:
+        ```bash
+        ssh ubuntu@54.158.180.95
+        ```
+
+    Repeat the above command for other servers (`web-02`, `lb-1`) using their respective aliases.
+

@@ -1,0 +1,15 @@
+It looks like you're providing a step-by-step guide for setting up SSH access to servers using a private key. This is a common and secure method for accessing remote servers. Here's a breakdown of each step:
+
+Open git bash: This is the command-line interface you'll be using to execute the following commands.
+
+Create a directory for SSH: This command creates a directory called .ssh in your home directory if it doesn't already exist. This directory is where SSH configuration and keys are typically stored.
+
+Edit SSH configuration: You use the vi editor to create or edit the SSH configuration file. This file is located at ~/.ssh/config. You configure it to define settings for connecting to different servers using SSH keys.
+
+Configure SSH hosts: In the SSH configuration file, you define different hosts (web-01, web-02, lb-1 in this case) with their respective IP addresses, usernames, and paths to the private key files (IdentityFile). This allows you to use shorthand aliases (web-01, web-02, lb-1) instead of typing out full SSH commands each time you want to connect.
+
+Edit private key file: You use vi to edit the private key file (~/.ssh/school) and add the private key associated with the SSH connection. This file typically ends with the extension .pem or .rsa.
+
+Set permissions on SSH directory and files: This command ensures that only the owner of the files (you) has permission to read, write, and execute them. It enhances security by preventing unauthorized access.
+
+Connect to the server: Now that everything is set up, you can simply use the ssh command followed by the shorthand alias you defined in the SSH configuration file to connect to the respective server. For example, ssh web-01 will connect you to the server with the hostname web-01, using the private key specified in the configuration file.
