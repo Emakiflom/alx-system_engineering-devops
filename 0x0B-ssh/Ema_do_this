@@ -1,0 +1,44 @@
+**********************************************************
+
+to inter to the server from your system or pc  when you have your privet key  do this 
+
+
+1, open git bash
+
+2, mkdir ~/.ssh
+
+3, vi ~/.ssh/config     and configer it
+   like this:
+
+4, 
+
+ Host web-01
+        HostName 54.158.180.95
+        User ubuntu
+        IdentityFile ~/.ssh/school
+ Host web-02
+        HostName 100.26.10.90
+        User ubuntu
+        IdentityFile ~/.ssh/school
+ Host lb-1
+        HostName 100.25.16.118
+        User ubuntu
+        IdentityFile ~/.ssh/school
+
+
+
+5, vi ~/.ssh/school       and add privet key and save it.
+
+
+6, chmod 700 ~/.ssh && chmod 600 ~/.ssh/school
+
+
+then run the server with this 
+
+7, ssh web-01
+
+7.1,  ssh ubuntu@<server_ip>
+ssh ubuntu@54.158.180.95
+
+
+**********************************************************
