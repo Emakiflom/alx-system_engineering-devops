@@ -1,6 +1,12 @@
-# UFW Configuration
-
-Configure your server to forward port 8080/TCP to port 80/TCP.
+#
+# rules.before
+#
+# Rules that should be run before the ufw command line added rules. Custom
+# rules should be added to one of these chains:
+#   ufw-before-input
+#   ufw-before-output
+#   ufw-before-forward
+#
 
 *nat
 :PREROUTING ACCEPT [0:0]
@@ -14,6 +20,7 @@ COMMIT
 :ufw-before-forward - [0:0]
 :ufw-not-local - [0:0]
 # End required lines
+
 
 # allow all on loopback
 -A ufw-before-input -i lo -j ACCEPT
@@ -71,4 +78,3 @@ COMMIT
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
-
