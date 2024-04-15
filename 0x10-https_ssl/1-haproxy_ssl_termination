@@ -40,7 +40,7 @@ frontend haproxy_balancer
          default_backend web-servers
 
 frontend https
-    bind *:443 ssl crt /etc/letsencrypt/live/www.ambes.tech/fullchain.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.ema2tel.tech/fullchain.pem
     http-request add-header X-Forwarded-Proto https
     default_backend web-backend
 
