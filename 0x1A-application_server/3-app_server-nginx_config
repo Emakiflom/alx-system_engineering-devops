@@ -1,0 +1,35 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    add_header X-Served-By "190329-web-01";
+    root /var/www/html;
+    index index.html index.htm;
+
+    location /airbnb-onepage/ {
+        alias /home/ubuntu/Airbnb_clone_v2/;
+        index index.html index.htm;
+        try_files $uri @proxy;
+    }
+
+    location /airbnb-dynamic/number_odd_or_even/ {
+        proxy_pass http://127.0.0.1:5001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location @proxy {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    rewrite ^/redirect_me https://github.com/EstephaniaCalvoC/ permanent;
+
+    error_page 404 /my_404.html;
+    location = /my_404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+}
