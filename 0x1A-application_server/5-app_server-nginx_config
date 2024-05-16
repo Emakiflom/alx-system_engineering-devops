@@ -1,0 +1,33 @@
+server {
+        listen 80 default_server;
+	listen [::]:80 default_server;
+	add_header X-Served-By "190329-web-01";
+	root /var/www/html;
+	index index.html index.htm;
+
+	location /airbnb-onepage/ {
+		alias ~/Holberton_Projects/Airbnb_clone_v2/;
+		index index.html index.htm;
+		proxy_pass http://0.0.0.0:5000;
+	}
+
+	location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+		proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+	}
+
+	location /api {
+		proxy_pass http://127.0.0.1:5002/api;
+	}
+
+	location / {
+		proxy_pass http://127.0.0.1:5003/2-hbnb;
+	}
+
+	location /static {
+		proxy_pass http://127.0.0.1:5003;
+	}
+
+	rewrite ^/redirect_me https://github.com/EstephaniaCalvoC/ permanent;
+        error_page 404 /my_404.html;
+        location = /my_404.html {root /usr/share/nginx/html; internal;}
+}
